@@ -25,6 +25,11 @@ namespace myWebApplication
                 app.UseDeveloperExceptionPage();
             }
 
+            app.Map("/test", build =>
+            {
+                build.Run(async context => await context.Response.WriteAsync("Hello from test"));
+            });
+
             app.Run(async (context) =>
             {
                 await context.Response.WriteAsync("Hello World!");
